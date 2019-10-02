@@ -9,18 +9,13 @@
     Nom: <input type="text" name ="nom" /><br />
     Prénom: <input type="text" name ="prenom" /><br />
     Email: <input type="text" name ="email" /><br />
-    <input type="submit" value ="ok" name="send" />
+    <input type="submit" value ="Envoyer" name="send" />
 
 </form>
 <a href="exercice1.php">Lien vers une autre page</a>
 <?php
-
-try {
-    $link = new PDO('mysql:host=localhost:3307;dbname=essaie',
-        'root', '');
-} catch (PDOException $e) {
-    print "Erreur !: " . $e->getMessage() . "<br>";
-}
+include "connection.php";
+$link=connect();
 session_start();
 if (isset($_SESSION['data'])) {
     $_SESSION['data'] = [];
@@ -57,3 +52,4 @@ function check($post)
     }
     return false;
 }
+?>
