@@ -13,7 +13,7 @@
 
     </form>
 
-    <a href="lastchance.php">Liste des utilisateurs</a> 
+    <a href="exercice1.php">Liste des utilisateurs</a> 
     
     <?php
     
@@ -35,7 +35,7 @@
 
             $stmt = $link->prepare($sql);
             $stmt->execute();
-            header('Location: lastchance.php'); //Fichier Liste d'utilisateur
+            header('Location: exercice1.php'); //Fichier Liste d'utilisateur
         }
         die();
 
