@@ -1,7 +1,7 @@
 <?php
 include "connection.php";
 $link=connect();
-$sql = "SELECT * FROM messages";
+$sql = "SELECT * FROM classe";
 
 $stmt = $link->prepare($sql);
 $stmt->execute();
@@ -20,17 +20,17 @@ $result = $stmt->fetchAll();
         <div class="row">
             <div class="col-12">
                 <h1>Liste des users</h1>
-                <table border="1" width="50%">
+                <table border="2" width="70%">
                     <tr>
                         <th>Nom</th>
-                        <th width="20%">Action</th>
+                        <th width="30%">Action</th>
                     </tr>
-                    <?php foreach ($result as $result) { ?>
+                    <?php foreach ($result as $user) { ?>
                         <tr>
-                            <td><?php echo $result['nom']; ?></td>
+                            <td><?php echo $user['nom']; ?></td>
                             <td>
-                               // <a href="delete_user.php">Supprimer un utilisateur</a>
-                                //<a href="edit_user.php">Modifier un utilisateur</a>
+                                <a href="user_delete.php?del=<?= $user['id'] ?>">Supprimer un utilisateur <br></a>
+                                <a href="form_modification.php?del=<?=$user['id']?>">Modifier un utilisateur<br></a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -40,4 +40,4 @@ $result = $stmt->fetchAll();
         </div>
     </div>
 </body>
-</html>
+</html>s
