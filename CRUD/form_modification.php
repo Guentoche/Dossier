@@ -18,14 +18,15 @@ if (isset($_SESSION['id']))
     echo "Vous avez modifié aucun visiteur ";
 }
 if (isset($_POST['envoyer'])) {
-    $sql = "UPDATE classe SET nom = '".$_POST['nom1']."', prenom = '".$_POST['prenom1']."', email = '".$_POST['email1']."' WHERE id = $id"; // $id vaut 6 je ne sais pas pourquoi.
+	$id=$_GET['id'];
+    $sql = "UPDATE classe SET nom = '".$_POST['nom1']."', prenom = '".$_POST['prenom1']."', email = '".$_POST['email1']."' WHERE id = $id";
     var_dump($sql);
     $link->exec($sql);
     var_dump($_POST);
     $nom = $_POST['nom1'];
     $prenom = $_POST['prenom1'];
     $email = $_POST['email1'];
-    //header('Location: exercice1.php');
+    header('Location: exercice1.php');
 }
 
 
@@ -42,9 +43,9 @@ if (isset($_POST['envoyer'])) {
 <body>
 
 <form action="" method="POST"> 
-		Nom: <input type="text" name="nom1" class="form-control" value="<?php echo $nom; ?>"/>
-        Prénom: <input type="text" name="prenom1" class="form-control" value="<?php echo $prenom; ?>"/>
-        Email: <input type="email" name="email1" class="form-control" value="<?php echo $email; ?>"/>
+		Nom: <input type="text" name="nom1" class="form-control" />
+        Prénom: <input type="text" name="prenom1" class="form-control" />
+        Email: <input type="email" name="email1" class="form-control" />
         <input type="submit" value ="Enregistrer les modifications" name="envoyer" />
 
 </form>
