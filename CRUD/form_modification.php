@@ -4,12 +4,10 @@ include "connection.php";
 session_start();
 
 $link = connect();
-var_dump($_POST);
 if (isset($_SESSION['id']))
 {
     $id = $_SESSION['id'];
     $data = $link->query("SELECT * FROM classe WHERE id = " . $id)->fetch();
-    var_dump($data);
     $nom = $data['nom1'];
     $prenom = $data['prenom1'];
     $email = $data['email1'];
@@ -20,9 +18,7 @@ if (isset($_SESSION['id']))
 if (isset($_POST['envoyer'])) {
 	$id=$_GET['id'];
     $sql = "UPDATE classe SET nom = '".$_POST['nom1']."', prenom = '".$_POST['prenom1']."', email = '".$_POST['email1']."' WHERE id = $id";
-    var_dump($sql);
     $link->exec($sql);
-    var_dump($_POST);
     $nom = $_POST['nom1'];
     $prenom = $_POST['prenom1'];
     $email = $_POST['email1'];
@@ -37,7 +33,8 @@ if (isset($_POST['envoyer'])) {
 <html>
 
 <head>
-	<title> Form Modification</title>
+	<title> Modification d'un utilisateur</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
 </head>
 
 <body>
