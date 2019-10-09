@@ -30,7 +30,7 @@ $result = $stmt->fetchAll();
                             <td><?php echo $user['nom']; ?></td>
                             <td>
                                 <a href="user_delete.php?del=<?= $user['id'] ?>">Supprimer un utilisateur <br></a>
-                                <a href="form_modification.php?del=<?=$user['id']?>">Modifier un utilisateur<br></a>
+                                <a href="form_modification.php?id=<?=$user['id']?>">Modifier un utilisateur<br></a>
                             </td>
                         </tr>
                     <?php } ?>
